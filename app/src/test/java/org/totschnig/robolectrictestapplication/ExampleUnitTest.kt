@@ -16,7 +16,6 @@ class ExampleUnitTest {
 	fun appendContent() {
 		val context = ApplicationProvider.getApplicationContext<Context>()
 		val uri = Exporter.export(context, "Line 1", false)!!
-		Exporter.export(context, "Line 2", true)
 		assertEquals(uri, Exporter.export(context, "Line 2", true))
 		FileInputStream(File(uri.path!!)).use {
 			assertEquals(listOf("Line 1", "Line 2"), read(it))
